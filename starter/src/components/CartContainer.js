@@ -14,7 +14,7 @@ const CartContainer = () => {
   );
 
   useEffect(() => {
-    dispatch(getCartItems());
+    dispatch(getCartItems("Hello")); //parameter for ThunkAPI
   }, []);
 
   useEffect(() => {
