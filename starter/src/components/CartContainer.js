@@ -3,8 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { calculateTotals } from "../features/cart/cartSlice";
 import { openModal } from "../features/modal/modalSlice";
 import CartItem from "./CartItem";
+import Modal from "./Modal";
 
 const CartContainer = () => {
+  const { isModalOpen } = useSelector((store) => store.modal);
+
   const dispatch = useDispatch();
   const { cartItems, total, amount } = useSelector((store) => store.cart);
 
@@ -24,6 +27,7 @@ const CartContainer = () => {
   }
   return (
     <section className="cart">
+      {isModalOpen && <Modal />}
       <header>
         <h2>your bag</h2>
       </header>
